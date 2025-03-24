@@ -15,6 +15,10 @@ ps = PorterStemmer()
 
 def transform_text(text):
   text = text.lower()
+  try:
+    nltk.data.find('tokenizers/punkt')
+  except LookupError:
+    nltk.download('punkt')
   text = nltk.word_tokenize(text)
   y =[]
   for i in text:
